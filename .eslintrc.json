@@ -1,11 +1,20 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {
-    "@typescript-eslint/no-unused-vars": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "react/no-unescaped-entities": "off",
-    "@next/next/no-img-element": "off",
-    "no-var": "off",
-    "react/display-name": "off"
-  }
-}
+2|  "extends": "next/core-web-vitals",
+3|  "rules": {
+4|    "@typescript-eslint/no-unused-vars": "off",
+5|    "@typescript-eslint/no-explicit-any": "off",
+6|    "react/no-unescaped-entities": "off",
+7|    "@next/next/no-img-element": "off",
+8|    "no-var": "off",
+9|    "react/display-name": "off",
+10|    "@typescript-eslint/no-empty-function": "off",
+11|    "@typescript-eslint/ban-ts-comment": "off"
+12|  },
+13|  "ignorePatterns": [
+14|    "node_modules/",
+15|    ".next/",
+16|    "out/",
+17|    "public/",
+18|    "*.config.js"
+19|  ]
+20|}
