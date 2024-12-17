@@ -29,7 +29,7 @@ model Event {
   year      String
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
-  locations Location[]
+  locations Location[] @relation("EventToLocation")
 
   @@unique([name, year])
 }
