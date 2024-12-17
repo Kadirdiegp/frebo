@@ -2,7 +2,8 @@
 const nextConfig = {
   images: {
     remotePatterns: [],
-    unoptimized: true
+    unoptimized: true,
+    domains: ['localhost', 'frebo.netlify.app'],
   },
   typescript: {
     ignoreBuildErrors: true,

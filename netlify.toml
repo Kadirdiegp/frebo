@@ -1,5 +1,5 @@
 [build]
-  command = "npx prisma generate && SKIP_TYPE_CHECK=true npm run build"
+  command = "npx prisma generate && npx prisma db push && npx prisma db seed && SKIP_TYPE_CHECK=true npm run build"
   publish = ".next"
 
 [[plugins]]
@@ -10,4 +10,3 @@
   NEXT_PRIVATE_TARGET = "server"
   NODE_VERSION = "18"
   NEXT_TELEMETRY_DISABLED = "1"
-  DATABASE_URL = "your-database-url-here"
