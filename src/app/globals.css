@@ -29,7 +29,8 @@
 
   .image-card {
     position: relative;
-    @apply aspect-w-16 aspect-h-9 bg-secondary rounded-lg overflow-hidden;
+    @apply relative bg-secondary rounded-lg overflow-hidden;
+    aspect-ratio: 16/9;
   }
 }
 
