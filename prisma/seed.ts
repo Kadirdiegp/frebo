@@ -73,9 +73,16 @@ async function main() {
 
   // Events mit Locations verknüpfen
   await prisma.event.upsert({
-    where: { name_year: { name: 'ADAC MX Masters', year: '2024' } },
-    update: {},
+    where: { 
+      id: 'mx-masters-2024' // Eindeutige ID verwenden
+    },
+    update: {
+      locations: {
+        connect: [{ id: dreetz.id }]
+      }
+    },
     create: {
+      id: 'mx-masters-2024',
       name: 'ADAC MX Masters',
       year: '2024',
       locations: {
@@ -85,9 +92,16 @@ async function main() {
   });
 
   await prisma.event.upsert({
-    where: { name_year: { name: 'German Cross Country', year: '2024' } },
-    update: {},
+    where: { 
+      id: 'gcc-2024' // Eindeutige ID verwenden
+    },
+    update: {
+      locations: {
+        connect: [{ id: schwerin.id }]
+      }
+    },
     create: {
+      id: 'gcc-2024',
       name: 'German Cross Country',
       year: '2024',
       locations: {
