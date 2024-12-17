@@ -19,8 +19,10 @@ async function main() {
   });
 
   // Locations mit Bildern erstellen
-  const dreetz = await prisma.location.create({
-    data: {
+  const dreetz = await prisma.location.upsert({
+    where: { name: 'Dreetz' },
+    update: {},
+    create: {
       name: 'Dreetz',
       images: {
         create: [
@@ -43,8 +45,10 @@ async function main() {
     }
   });
 
-  const schwerin = await prisma.location.create({
-    data: {
+  const schwerin = await prisma.location.upsert({
+    where: { name: 'Schwerin' },
+    update: {},
+    create: {
       name: 'Schwerin',
       images: {
         create: [
@@ -68,8 +72,10 @@ async function main() {
   });
 
   // Events mit Locations verknüpfen
-  await prisma.event.create({
-    data: {
+  await prisma.event.upsert({
+    where: { name_year: { name: 'ADAC MX Masters', year: '2024' } },
+    update: {},
+    create: {
       name: 'ADAC MX Masters',
       year: '2024',
       locations: {
@@ -78,8 +84,10 @@ async function main() {
     }
   });
 
-  await prisma.event.create({
-    data: {
+  await prisma.event.upsert({
+    where: { name_year: { name: 'German Cross Country', year: '2024' } },
+    update: {},
+    create: {
       name: 'German Cross Country',
       year: '2024',
       locations: {
