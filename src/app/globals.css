@@ -2,122 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+}
+
 @layer base {
-  :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --primary: 199 100% 74%;
-    --secondary: 0 0% 10%;
-    --accent: 199 100% 74%;
-  }
-}
-
-body {
-  color: theme('colors.text');
-  background: theme('colors.primary');
-}
-
-/* Custom styles for the hero section */
-.hero-section {
-  position: relative;
-  height: 80vh;
-  background-color: theme('colors.primary');
-  overflow: hidden;
-}
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* Mobile-specific styles */
-@media (max-width: 768px) {
-  .location-column {
-    @apply bg-accent/10;
-  }
-  
-  .burger-menu {
-    @apply text-accent hover:text-accent-light;
-  }
-  
-  .mobile-nav {
+  body {
     @apply bg-primary text-text;
   }
 }
 
-/* Custom styles for navigation */
-.nav-link {
-  @apply text-text hover:text-accent transition-colors duration-200;
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-text px-6 py-3 rounded-lg 
+    hover:bg-accent-light transition-colors duration-200
+    font-semibold shadow-md flex items-center gap-2;
+  }
+
+  .form-input {
+    @apply w-full px-5 py-3 bg-secondary-light rounded-lg 
+    text-text placeholder:text-text/50
+    focus:outline-none focus:ring-2 focus:ring-accent
+    transition-shadow duration-200;
+  }
+
+  .image-card {
+    position: relative;
+    @apply aspect-w-16 aspect-h-9 bg-secondary rounded-lg overflow-hidden;
+  }
 }
 
-/* Custom styles for buttons and interactive elements */
-.btn-primary {
-  @apply bg-accent text-text font-semibold
-  py-3 px-6 rounded-lg
-  hover:bg-accent-light 
-  transition-colors duration-200;
+/* Dark mode by default */
+body {
+  background-color: #000000; /* primary */
+  color: #FFFFFF; /* text */
 }
 
-.btn-secondary {
-  @apply bg-black/40 text-text px-6 py-2 rounded-lg hover:bg-black/60 transition-all;
+.bg-secondary {
+  background-color: #1A1A1A;
 }
 
-/* Custom styles for image cards */
-.image-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+.bg-secondary-light {
+  background-color: #2A2A2A;
 }
 
+.bg-accent {
+  background-color: #89cff0;
+}
+
+.bg-accent-light {
+  background-color: #a5d9f3;
+}
+
+.text-text {
+  color: #FFFFFF;
+}
+
+.text-text\/70 {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Image card styles */
 .image-card {
-  @apply relative overflow-hidden rounded-lg
-  bg-black/40
-  transition-transform duration-300
-  hover:scale-[1.02];
-}
-
-.image-card:hover img {
-  @apply scale-105;
+  @apply relative aspect-w-16 aspect-h-9 bg-secondary rounded-lg overflow-hidden;
 }
 
 .image-overlay {
-  @apply absolute inset-0 
-  bg-gradient-to-t from-black/80 to-transparent
-  opacity-0 hover:opacity-100
-  transition-opacity duration-300;
+  @apply absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-200;
+}
+
+.group:hover .image-overlay {
+  @apply opacity-100;
+}
+
+.image-content {
+  @apply absolute inset-0 flex items-center justify-center;
 }
 
 .image-title {
-  @apply absolute bottom-4 left-4
-  text-lg font-semibold text-text
-  opacity-0 group-hover:opacity-100
-  transition-opacity duration-300;
+  @apply transform translate-y-4 transition-transform duration-200;
 }
 
-/* Form styles */
-.form-label {
-  @apply block text-sm font-medium text-text mb-2;
-}
-
-.form-input {
-  @apply w-full px-4 py-2 bg-black/40 border border-white/20 rounded-lg 
-  text-text placeholder:text-white/50
-  focus:ring-2 focus:ring-accent focus:border-accent outline-none
-  transition-all duration-200;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
+.group:hover .image-title {
+  @apply translate-y-0;
 }

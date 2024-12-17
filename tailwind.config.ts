@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#000000", // Black
-        secondary: "#1A1A1A", // Lighter black
-        "secondary-light": "#2A2A2A", // Even lighter black for hover states
-        text: "#FFFFFF", // White text
+        primary: "#000000",
+        secondary: "#1A1A1A",
+        "secondary-light": "#2A2A2A",
+        text: "#FFFFFF",
         accent: {
           DEFAULT: '#89cff0',
           light: '#a5d9f3',
@@ -23,4 +23,5 @@ const config: Config = {
   },
   plugins: [],
 }
+
 export default config
